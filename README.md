@@ -70,7 +70,7 @@ Example commands:
 
   git clone https://github.com/BHObserver/math-magicians.git
   
-  cd Portfolio
+  cd math-magicians
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
