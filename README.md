@@ -28,10 +28,10 @@
 
 ## 🛠 Built With <a name="built-with"></a>
 <ul>
-  <li>**HTML5**</li>
+  <li>HTML5</li>
   <li>**CSS3**</li>
-  <li>**Vanilla JavaScript (ES6)**</li>
-  <li>**React**</li>
+  <li>Vanilla JavaScript (ES6)</li>
+  <li>React</li>
 </ul>
 
 ### Tech Stack <a name="tech-stack"></a>
