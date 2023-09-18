@@ -21,7 +21,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Leaderboard <a name="about-project"></a>
+# 📖 Math Magicians <a name="about-project"></a>
 
 
 **Math Magicians** is a single page website built with React that is can do simple calculations as a simple calculator.
