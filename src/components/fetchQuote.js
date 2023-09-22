@@ -5,20 +5,12 @@ function QuoteDisplay() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const category = 'Life'; // Default category
-  const apiKey = 'T4jhMp6jkPwaYLrw2IN+dg==9djzc72tDHZm9ypC'; // Default API key
-
+  const category = 'Life';
   useEffect(() => {
-    if (!apiKey) {
-      setError(new Error('API Key is missing.'));
-      setLoading(false);
-      return;
-    }
-
     fetch(`https://api.api-ninjas.com/v1/quotes?category=${category}`, {
       method: 'GET',
       headers: {
-        'X-Api-Key': apiKey,
+        'X-Api-Key': 'T4jhMp6jkPwaYLrw2IN+dg==9djzc72tDHZm9ypC',
         'Content-Type': 'application/json',
       },
     })
@@ -39,7 +31,7 @@ function QuoteDisplay() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
@@ -52,12 +44,19 @@ function QuoteDisplay() {
   }
 
   return (
-    <div>
+    <div className="quote-container">
       <h1>
         Quotes on &nbsp;
         {category}
       </h1>
-      <span>{quotes[0].quote}</span>
+      <span className="quote">
+        <blockquote>
+          <q>{quotes[0].quote}</q>
+        </blockquote>
+        <span className="author">
+          {quotes[0].author}
+        </span>
+      </span>
     </div>
   );
 }
