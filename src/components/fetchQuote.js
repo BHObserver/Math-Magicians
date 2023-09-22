@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -70,8 +71,8 @@ QuoteDisplay.propTypes = {
 };
 
 QuoteDisplay.defaultProps = {
-  category: 'happiness',
-  apiKey: 'YOUR_DEFAULT_API_KEY',
+  category: 'life',
+  apiKey: 'T4jhMp6jkPwaYLrw2IN+dg==9djzc72tDHZm9ypC',
 };
 
 export default QuoteDisplay;
