@@ -53,7 +53,7 @@ function QuoteDisplay({ category, apiKey }) {
   return (
     <div>
       <h1>
-        Quotes on
+        Quotes on &nbsp;
         {category}
       </h1>
       <ul>
@@ -71,7 +71,7 @@ QuoteDisplay.propTypes = {
 };
 
 QuoteDisplay.defaultProps = {
-  category: 'life',
+  category: 'Life',
   apiKey: 'T4jhMp6jkPwaYLrw2IN+dg==9djzc72tDHZm9ypC',
 };
 
