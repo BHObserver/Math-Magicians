@@ -3,6 +3,10 @@ import './style.css';
 import calculate from '../logic/calculate';
 import QuoteDisplay from './fetchQuote';
 
+/* const apiKey = 'T4jhMp6jkPwaYLrw2IN+dg==9djzc72tDHZm9ypC';
+const category = ['success', 'life', 'intelligence',
+'inspirational', 'humor', 'hope', 'failure', 'computers']; */
+
 function Calculator() {
   const [state, setState] = useState({
     total: 0,
