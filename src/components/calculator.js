@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
 import calculate from '../logic/calculate';
-import QuoteDisplay from './fetchQuote';
 
 function Calculator() {
   const [state, setState] = useState({
@@ -55,7 +54,6 @@ function Calculator() {
           <button type="button" name="=" className="bg-color" onClick={() => handleClick('=')}>=</button>
         </span>
       </div>
-      <QuoteDisplay />
     </div>
   );
 }
