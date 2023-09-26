@@ -1,17 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Calculator from './calculator';
 
-test('renders calculator with initial state', () => {
-  render(<Calculator />);
-});
-
-test('', () => {
-  render(<Calculator />);
-
-  // Click some buttons to update the display
-  fireEvent.click(screen.getByText('1'));
-  fireEvent.click(screen.getByText('+'));
-  fireEvent.click(screen.getByText('2'));
-  fireEvent.click(screen.getByText('='));
+test('Calculator component snapshot', () => {
+  const tree = renderer.create(<Calculator />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
