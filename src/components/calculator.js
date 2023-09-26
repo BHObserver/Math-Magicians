@@ -16,6 +16,9 @@ function Calculator() {
 
   return (
     <div className="container">
+      <div className="text-container">
+        <h1>Let&apos;s Do Some Math!</h1>
+      </div>
       <div className="cal-container">
         <span className="output">
           {state.total}
