@@ -1,17 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import QuoteDisplay from './fetchQuote';
 
-test('renders loading message initially', () => {
-  render(<QuoteDisplay />);
-});
-
-test('renders a quote after loading', async () => {
-  // Mock the fetch function to return a resolved promise with sample data
-  jest.spyOn(global, 'fetch').mockResolvedValueOnce({
-    ok: true,
-    json: async () => [{ quote: 'Test Quote', author: 'Test Author' }],
-  });
-
-  render(<QuoteDisplay />);
+test('QuoteDisplay component snapshot', () => {
+  const tree = renderer.create(<QuoteDisplay />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
