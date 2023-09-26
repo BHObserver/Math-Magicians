@@ -22,9 +22,10 @@ export default function calculate(obj, buttonName) {
     };
   }
 
+  // Inside calculate function
   if (isNumber(buttonName)) {
     if (buttonName === '0' && obj.next === '0') {
-      return {};
+      return { ...obj };
     }
     // If there is an operation, update next
     if (obj.operation) {
@@ -37,12 +38,12 @@ export default function calculate(obj, buttonName) {
     if (obj.next && obj.next !== '0') {
       return {
         next: obj.next + buttonName,
-        total: null,
+        total: obj.total, // Keep the total unchanged
       };
     }
     return {
       next: buttonName,
-      total: null,
+      total: obj.total, // Keep the total unchanged
     };
   }
 
@@ -65,16 +66,21 @@ export default function calculate(obj, buttonName) {
     return { ...obj, next: '0.' };
   }
 
+  // Inside calculate function
   if (buttonName === '=') {
     if (obj.next && obj.operation) {
-      return {
-        total: operate(obj.total, obj.next, obj.operation),
-        next: null,
-        operation: null,
-      };
+      try {
+        const total = operate(obj.total || '0', obj.next, obj.operation); // Handle null total
+        return {
+          total: total.toString(),
+          next: null,
+          operation: null,
+        };
+      } catch (error) {
+        return { ...obj }; // Handle any errors from the operate function
+      }
     }
-    // '=' with no operation, nothing to do
-    return {};
+    return { ...obj };
   }
 
   if (buttonName === '+/-') {
@@ -111,7 +117,7 @@ export default function calculate(obj, buttonName) {
     }
 
     return {
-      total: operate(obj.total, obj.next, obj.operation),
+      total: obj.total, // Keep the total unchanged
       next: null,
       operation: buttonName,
     };
@@ -120,8 +126,8 @@ export default function calculate(obj, buttonName) {
   // no operation yet, but the user typed one
 
   // The user hasn't typed a number yet, just save the operation
-  if (!obj.next) {
-    return { operation: buttonName };
+  if (!obj.next && !obj.total) {
+    return { ...obj };
   }
 
   // save the operation and shift 'next' into 'total'
