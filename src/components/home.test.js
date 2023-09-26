@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Home from './home';
 
-test('renders the Home component', () => {
-// Check if the Home component is rendered
-  render(<Home />);
+test('Home component snapshot', () => {
+  const tree = renderer.create(<Home />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
